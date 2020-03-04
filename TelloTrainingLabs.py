@@ -49,6 +49,15 @@ def square():
         sendmsg('forward 100') #Dronte will go forward 100cm
         sendmsg('ccw 90') #Drone will turn Counter Clockwise 90 Degrees
 
+#Triangle Function
+def triangle():
+    sendmsg('up 100')
+    for i in range(3):
+        sendmsg('forward 100') #drone will go forward 100cm
+        sendmsg('ccw 120') #drone will turn Counter Clockwise 120 degrees
+
+
+
 print("\nAndrew Gowan")
 print("Square Function: ")
 print("3.3.20: ")
