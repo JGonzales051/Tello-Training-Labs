@@ -30,7 +30,7 @@ def recv():
             break
 
 
-def sendmsg(msg, sleep = 6):
+def sendmsg(msg, sleep = 4):
     print("Sending: " + msg)
     msg = msg.encode(encoding="utf-8")
     sock.sendto(msg, tello_address)
@@ -51,14 +51,14 @@ def square():
 
 #Triangle Function
 def triangle():
-    sendmsg('up 100')
+    sendmsg('up 50')
     for i in range(3):
         sendmsg('forward 100') #drone will go forward 100cm
         sendmsg('ccw 120') #drone will turn Counter Clockwise 120 degrees
 
 
 
-print("\nAndrew Gowan")
+print("\nJeremiah Gonzales")
 print("Square Function: ")
 print("3.3.20: ")
 print("\n****CHECK YOUR TELLO WIFI ADDRESS****")
@@ -71,9 +71,10 @@ try:
         print("\nStarting Drone!\n")
 
         sendmsg('command', 0)
-        sendmsg('takeoff')
+        sendmsg('takeoff', 8)
 
-        square() #calling funciton square
+        #square() #calling funciton square
+        triangle()
 
         sendmsg('land')
 
