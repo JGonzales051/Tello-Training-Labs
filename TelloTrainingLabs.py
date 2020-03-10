@@ -29,6 +29,9 @@ def recv():
             print ('\n****Keep Eye on Drone****\n')
             break
 
+def flip():
+    sendmsg('flip f')
+
 
 def sendmsg(msg, sleep = 4):
     print("Sending: " + msg)
@@ -43,18 +46,17 @@ recvThread.start()
 
 # CREATE FUNCTIONS HERE....
 
-# Square Function
-def square():
-    for i in range(4):
-        sendmsg('forward 100') #Dronte will go forward 100cm
-        sendmsg('ccw 90') #Drone will turn Counter Clockwise 90 Degrees
-
-#Triangle Function
-def triangle():
+#Flip and Back
+def FlipandBack():
     sendmsg('up 50')
-    for i in range(3):
-        sendmsg('forward 100') #drone will go forward 100cm
-        sendmsg('ccw 120') #drone will turn Counter Clockwise 120 degrees
+    for i in range(1):
+        sendmsg('forward 75') #drone will go forward 100cm
+        flip()
+        sendmsg('forward 50')
+        sendmsg('ccw 180') #drone will turn Counter Clockwise 120 degrees
+        sendmsg('forward 50')
+        flip()
+        sendmsg('forward 75')
 
 
 
@@ -74,7 +76,7 @@ try:
         sendmsg('takeoff', 8)
 
         #square() #calling funciton square
-        triangle()
+        FlipandBack()
 
         sendmsg('land')
 
